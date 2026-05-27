@@ -1,31 +1,13 @@
-require('dotenv').config();
+equire('dotenv').config();
 
 const { Client, GatewayIntentBits } = require("discord.js");
 
 const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent
-  ]
+  intents: [GatewayIntentBits.Guilds]
 });
 
 client.once("ready", () => {
-  console.log("🌌 Lumenfall System is awake...");
-});
-
-client.on("messageCreate", (message) => {
-  if (message.author.bot) return;
-
-  const text = message.content.toLowerCase();
-
-  if (text.includes("wake up")) {
-    message.reply("…The world stirs. Lumenfall acknowledges your presence.");
-  }
-
-  if (text.includes("hello")) {
-    message.reply("A silence answers you first… then Lumenfall responds.");
-  }
+  console.log("Bot is online");
 });
 
 client.login(process.env.DISCORD_TOKEN);
